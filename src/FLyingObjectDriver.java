@@ -58,11 +58,7 @@ public static void main(String[] args) {
   i++;
   }
   
-  
-  
-  
 }
-public FlyingObject[] Copy(FlyingObject[] toCopy) {
-  return toCopy;}
+
 
 }
