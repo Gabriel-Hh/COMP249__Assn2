@@ -45,14 +45,13 @@ public class Airplane extends FlyingObject{
    */
   public Airplane(FlyingObject toCopy){ 
 	super(toCopy);
-	try {
-	 Airplane cast = new Airplane(); 
-	 cast = (Airplane)toCopy;
+	try { 
+	 Airplane cast = (Airplane)toCopy;
 	 brand = cast.brand;
 	 price = cast.price;
 	 horsepower = cast.horsepower;
 	}
-	catch(Exception e){System.out.println("Copy failed in Airplane Class:\n" + e.getMessage());;}
+	catch(Exception e){System.out.println("Copy failed in Airplane Class:\n" + e.getMessage());}
   }
   
   
@@ -114,6 +113,19 @@ public class Airplane extends FlyingObject{
 	return brand == other.brand && horsepower == other.horsepower
 		&& price == other.price;
   }
+  
+  /**
+   * Polymorphic method to create a copy of a FlyingObject.
+   * @param toCopy FlyingObject to copy
+   * @return copy
+   */
+  @Override
+  public FlyingObject copy() {
+	Airplane copy = new Airplane(this);
+	return copy;
+  }
+
+
 
 //************************************** TEST ********************************************************//  
   public static void main(String[] args) {
@@ -165,4 +177,7 @@ public class Airplane extends FlyingObject{
 //	FlyingObject test5 = new FlyingObject(8); // cant do, as expected
 
   }
+
+
+  
 }

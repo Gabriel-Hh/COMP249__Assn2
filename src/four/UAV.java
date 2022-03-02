@@ -34,9 +34,13 @@ public class UAV extends FlyingObject {
    * Copy Constructor for UAV.
    * @param toCopy UAV to copy
    */
-  public UAV(UAV toCopy) {
+  public UAV(FlyingObject toCopy) {
 	super(toCopy);
-	weight = toCopy.weight;
+	try {
+	  UAV cast = (UAV)toCopy;
+	  weight = cast.weight;
+	}
+	catch(Exception e){System.out.println("Copy failed in UAV Class:\n" + e.getMessage());}
   }
 
   //********************************* Getters and Setter ************************************************//
@@ -82,6 +86,17 @@ public class UAV extends FlyingObject {
 	  return false;
 	UAV other = (UAV) obj;
 	return weight == other.weight && price == other.price;
+  }
+  
+  /**
+   * Polymorphic method to create a copy of a FlyingObject.
+   * @param toCopy FlyingObject to copy
+   * @return copy
+   */
+  @Override
+  public FlyingObject copy() {
+	UAV copy = new UAV(this);
+	return copy;
   }
 
 //************************************** TEST ********************************************************//  

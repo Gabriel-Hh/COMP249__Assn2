@@ -4,6 +4,7 @@
 package five;
 
 import four.UAV;
+import zero.FlyingObject;
 
 /**MAV extends UAV.
  * @author Gabriel Horth
@@ -39,10 +40,11 @@ public class MAV extends UAV {
   /**
    * @param toCopy
    */
-  public MAV(MAV toCopy) {
+  public MAV(FlyingObject toCopy) {
 	super(toCopy);
-	model = toCopy.model;
-	size = toCopy.size;
+	MAV cast = (MAV)toCopy;
+	model = cast.model;
+	size = cast.size;
   }
 
   //********************************* Getters and Setter ************************************************//
@@ -99,6 +101,17 @@ public class MAV extends UAV {
 	  return false;
 	MAV other = (MAV) obj;
 	return model == other.model && size == other.size;
+  }
+  
+  /**
+   * Polymorphic method to create a copy of a FlyingObject.
+   * @param toCopy FlyingObject to copy
+   * @return copy
+   */
+  @Override
+  public FlyingObject copy() {
+	MAV copy = new MAV(this);
+	return copy;
   }
 
   

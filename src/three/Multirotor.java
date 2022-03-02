@@ -42,9 +42,10 @@ public class Multirotor extends Helicopter {
    * 
    * @param toCopy
    */
-  public Multirotor(Multirotor toCopy) {
+  public Multirotor(FlyingObject toCopy) {
 	super(toCopy);
-	numberOfRotors = toCopy.numberOfRotors;
+	Multirotor cast = (Multirotor)toCopy;
+	numberOfRotors = cast.numberOfRotors;
   }
 
   //********************************* Getters and Setter ************************************************//
@@ -90,6 +91,17 @@ public class Multirotor extends Helicopter {
 	  return false;
 	Multirotor other = (Multirotor) obj;
 	return numberOfRotors == other.numberOfRotors;
+  }
+  
+  /**
+   * Polymorphic method to create a copy of a FlyingObject.
+   * @param toCopy FlyingObject to copy
+   * @return copy
+   */
+  @Override
+  public FlyingObject copy() {
+	Multirotor copy = new Multirotor(this);
+	return copy;
   }
 
 //************************************** TEST ********************************************************//  

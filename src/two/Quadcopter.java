@@ -12,7 +12,7 @@ import zero.FlyingObject;
  */
 public class Quadcopter extends Helicopter {
   
-  protected int maxFlyingSpeed;
+  protected int maxFlyingSpeed; //in km/h
   
   //********************************* Constructors ****************************************************//
   
@@ -41,9 +41,13 @@ public class Quadcopter extends Helicopter {
   /**Copy Constructor for Quadcopter.
    * @param toCopy Quadcopter to copy
    */
-  public Quadcopter(Quadcopter toCopy) {
+  public Quadcopter(FlyingObject toCopy) {
 	super(toCopy);
-	maxFlyingSpeed = toCopy.maxFlyingSpeed;
+	try {
+	Quadcopter cast = (Quadcopter)toCopy;
+	maxFlyingSpeed = cast.maxFlyingSpeed;
+	}
+	catch(Exception e){System.out.println("Copy failed in Quadcopter Class:\n" + e.getMessage());}
   }
 
   //********************************* Getters and Setter ************************************************//
@@ -90,6 +94,17 @@ public class Quadcopter extends Helicopter {
 	  return false;
 	Quadcopter other = (Quadcopter) obj;
 	return maxFlyingSpeed == other.maxFlyingSpeed;
+  }
+  
+  /**
+   * Polymorphic method to create a copy of a FlyingObject.
+   * @param toCopy FlyingObject to copy
+   * @return copy
+   */
+  @Override
+  public FlyingObject copy() {
+	Quadcopter copy = new Quadcopter(this);
+	return copy;
   }
 
 //************************************** TEST ********************************************************//  

@@ -48,11 +48,15 @@ public class Helicopter extends Airplane {
    * Copy constructor for Helicopter.
    * @param toCopy Helicopter to copy
    */
-  public Helicopter(Helicopter toCopy) {
+  public Helicopter(FlyingObject toCopy) {
 	super(toCopy);
-	numberOfCylinders = toCopy.numberOfCylinders;
-	creationYear = toCopy.creationYear;
-	passengerCapacity = toCopy.passengerCapacity;
+	try {
+	Helicopter cast = (Helicopter)toCopy;
+	numberOfCylinders = cast.numberOfCylinders;
+	creationYear = cast.creationYear;
+	passengerCapacity = cast.passengerCapacity;
+	}
+	catch(Exception e) {System.out.println("Copy failed in Helicopter Class:\n" + e.getMessage());}
   }
   
   //********************************* Getters and Setter ************************************************//
@@ -132,6 +136,17 @@ public class Helicopter extends Airplane {
 	return creationYear == other.creationYear && numberOfCylinders == other.numberOfCylinders
 		&& passengerCapacity == other.passengerCapacity;
   }  
+  
+  /**
+   * Polymorphic method to create a copy of a FlyingObject.
+   * @param toCopy FlyingObject to copy
+   * @return copy
+   */
+  @Override
+  public FlyingObject copy() {
+	Helicopter copy = new Helicopter(this);
+	return copy;
+  }
   
   
 //************************************** TEST ********************************************************//  

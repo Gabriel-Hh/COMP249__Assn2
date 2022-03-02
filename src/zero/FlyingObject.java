@@ -68,5 +68,12 @@ public abstract class FlyingObject {
   @Override
   public abstract boolean equals(Object obj);
   
+  /**
+   * Polymorphic method to create a copy of a FlyingObject.
+   * @param toCopy FlyingObject to copy
+   * @return
+   */
+  public abstract FlyingObject copy();
+  
 
 }

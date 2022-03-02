@@ -39,10 +39,11 @@ public class AgriculturalDrone extends UAV {
   /**Copy COnstructor for AgriculturalDrone.
    * @param toCopy AgriculturalDrone to copy
    */
-  public AgriculturalDrone(AgriculturalDrone toCopy) {
+  public AgriculturalDrone(FlyingObject toCopy) {
 	super(toCopy);
-	brand = toCopy.brand;
-	carryCapacity = toCopy.carryCapacity;
+	AgriculturalDrone cast = (AgriculturalDrone)toCopy;
+	brand = cast.brand;
+	carryCapacity = cast.carryCapacity;
   }
   
   //********************************* Getters and Setter ************************************************//
@@ -103,6 +104,17 @@ public class AgriculturalDrone extends UAV {
 	  return false;
 	AgriculturalDrone other = (AgriculturalDrone) obj;
 	return brand == other.brand && carryCapacity == other.carryCapacity;
+  }
+  
+  /**
+   * Polymorphic method to create a copy of a FlyingObject.
+   * @param toCopy FlyingObject to copy
+   * @return copy
+   */
+  @Override
+  public FlyingObject copy() {
+	AgriculturalDrone copy = new AgriculturalDrone(this);
+	return copy;
   }
   
 //************************************** TEST ********************************************************//  
