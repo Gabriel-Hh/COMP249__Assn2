@@ -47,11 +47,14 @@ public class Airplane extends FlyingObject{
 	super(toCopy);
 	try { 
 	 Airplane cast = (Airplane)toCopy;
+	 if(toCopy.getClass()!=Airplane.class && Airplane.class.isInstance(toCopy)) 
+	 	{throw new ClassCastException(toCopy.getClass().getName()+ " was cast to " + Airplane.class.getName() );}
 	 brand = cast.brand;
 	 price = cast.price;
 	 horsepower = cast.horsepower;
 	}
-	catch(Exception e){System.out.println("Copy failed in Airplane Class:\n" + e.getMessage());}
+	catch(ClassCastException e) {System.out.println("Warning: Upcast performed, possible data loss:\n" +e.getMessage());}
+	catch(Exception e){System.out.println("Error: Copy failed in Airplane Class:\n" + e.getMessage());}
   }
   
   

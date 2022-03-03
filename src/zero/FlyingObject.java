@@ -31,6 +31,10 @@ public abstract class FlyingObject {
   /**
    * Copy Constructor for FlyingObject
    * @param toCopy FLyingObject to copy
+   * @see FlyingObjectDriver
+   * @see copyFlyingObjects(FlyingObject[], String)
+   * NB: Descendants' copy constructors all accept FlyingObject arg 
+   * to satisfy method copyFlyingObjects(FlyingObject[], String)
    */
   protected FlyingObject(FlyingObject toCopy) {
 	  price = toCopy.price;
@@ -73,7 +77,7 @@ public abstract class FlyingObject {
    * @param toCopy FlyingObject to copy
    * @return
    */
-  public abstract FlyingObject copy();
+  public abstract FlyingObject copy(); //
   
 
 }

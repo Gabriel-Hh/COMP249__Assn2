@@ -51,10 +51,10 @@ public class Helicopter extends Airplane {
   public Helicopter(FlyingObject toCopy) {
 	super(toCopy);
 	try {
-	Helicopter cast = (Helicopter)toCopy;
-	numberOfCylinders = cast.numberOfCylinders;
-	creationYear = cast.creationYear;
-	passengerCapacity = cast.passengerCapacity;
+	  Helicopter cast = (Helicopter)toCopy;
+	  numberOfCylinders = cast.numberOfCylinders;
+	  creationYear = cast.creationYear;
+	  passengerCapacity = cast.passengerCapacity;
 	}
 	catch(Exception e) {System.out.println("Copy failed in Helicopter Class:\n" + e.getMessage());}
   }
@@ -149,56 +149,57 @@ public class Helicopter extends Airplane {
   }
   
   
-//************************************** TEST ********************************************************//  
-  public static void main(String[] args) {
-	
-	System.out.println("Default constructor:");
-	Helicopter test = new Helicopter();
-	System.out.println(test);
-	
-	System.out.println("\nParam constructor:");
-	Helicopter test2 = new Helicopter(1200000,"Boeing",8000,12,2006,10);
-	System.out.println(test2);
-	
-	System.out.println("\ntest3 is created with the copy constructor:");
-	Helicopter test3 = new Helicopter(test2);
-	System.out.println(test3);
-	if(test2 == test3) {System.out.println("Helicopter 2 and 3 are to same object");}
-	else {System.out.println("Helicopter 2 and 3 are not the same object.");}
-	System.out.println("However, do they have equal values? " + test2.equals(test3));
-	
-	
-	System.out.println("\ntest4 is created with the param constructor:");
-	Helicopter test4 = new Helicopter(1200000,"Boeing",8000,12,2006,10);
-	System.out.println(test4);
-	if(test2 == test4) {System.out.println("Helicopter 2 and 4 are to same object");}
-	else {System.out.println("Helicopter 2 and 4 are not the same object.");}
-	System.out.println("Do test4 and test2 they have equal values? " + test2.equals(test4));
-	
-	
-	System.out.println("\nsetPrice() on test4:");
-	test4.setPrice(600000);
-	System.out.println(test4);
-	System.out.println("Still equal values: " + test2.equals(test4));
-	
-	System.out.println("\ntest5 points at test2:");
-	Helicopter test5 = new Helicopter();
-	test5 = test2;
-	System.out.println(test5);
-	if(test2 == test5) {System.out.println("Helicopter 2 and 5 are to same object");}
-	else {System.out.println("Helicopter 2 and 5 are not the same object.");}
-	System.out.println("Do they have equal values? " + test2.equals(test5));
-	
-	System.out.println("\ntest6 is of static type FlyingObject, made through copy:");
-	FlyingObject test6 = new Helicopter(test2);
-	System.out.println(test6);
-	if(test2 == test6) {System.out.println("Helicopter 2 and 6 are to same object");}
-	else {System.out.println("Helicopter 2 and 5 are not the same object.");}
-	System.out.println("Do they have equal values? " + test2.equals(test6));
-	
-//	FlyingObject test5 = new FlyingObject(8); // cant do, as expected
-
-  }
+//************************************** TEST ********************************************************//
+  
+//  public static void main(String[] args) {
+//	
+//	System.out.println("Default constructor:");
+//	Helicopter test = new Helicopter();
+//	System.out.println(test);
+//	
+//	System.out.println("\nParam constructor:");
+//	Helicopter test2 = new Helicopter(1200000,"Boeing",8000,12,2006,10);
+//	System.out.println(test2);
+//	
+//	System.out.println("\ntest3 is created with the copy constructor:");
+//	Helicopter test3 = new Helicopter(test2);
+//	System.out.println(test3);
+//	if(test2 == test3) {System.out.println("Helicopter 2 and 3 are to same object");}
+//	else {System.out.println("Helicopter 2 and 3 are not the same object.");}
+//	System.out.println("However, do they have equal values? " + test2.equals(test3));
+//	
+//	
+//	System.out.println("\ntest4 is created with the param constructor:");
+//	Helicopter test4 = new Helicopter(1200000,"Boeing",8000,12,2006,10);
+//	System.out.println(test4);
+//	if(test2 == test4) {System.out.println("Helicopter 2 and 4 are to same object");}
+//	else {System.out.println("Helicopter 2 and 4 are not the same object.");}
+//	System.out.println("Do test4 and test2 they have equal values? " + test2.equals(test4));
+//	
+//	
+//	System.out.println("\nsetPrice() on test4:");
+//	test4.setPrice(600000);
+//	System.out.println(test4);
+//	System.out.println("Still equal values: " + test2.equals(test4));
+//	
+//	System.out.println("\ntest5 points at test2:");
+//	Helicopter test5 = new Helicopter();
+//	test5 = test2;
+//	System.out.println(test5);
+//	if(test2 == test5) {System.out.println("Helicopter 2 and 5 are to same object");}
+//	else {System.out.println("Helicopter 2 and 5 are not the same object.");}
+//	System.out.println("Do they have equal values? " + test2.equals(test5));
+//	
+//	System.out.println("\ntest6 is of static type FlyingObject, made through copy:");
+//	FlyingObject test6 = new Helicopter(test2);
+//	System.out.println(test6);
+//	if(test2 == test6) {System.out.println("Helicopter 2 and 6 are to same object");}
+//	else {System.out.println("Helicopter 2 and 5 are not the same object.");}
+//	System.out.println("Do they have equal values? " + test2.equals(test6));
+//	
+////	FlyingObject test5 = new FlyingObject(8); // cant do, as expected
+//
+//  }
 
   
   

@@ -41,9 +41,12 @@ public class AgriculturalDrone extends UAV {
    */
   public AgriculturalDrone(FlyingObject toCopy) {
 	super(toCopy);
-	AgriculturalDrone cast = (AgriculturalDrone)toCopy;
-	brand = cast.brand;
-	carryCapacity = cast.carryCapacity;
+	try {
+	  AgriculturalDrone cast = (AgriculturalDrone)toCopy;
+	  brand = cast.brand;
+	  carryCapacity = cast.carryCapacity;
+	}
+	catch(Exception e){System.out.println("Copy failed in AgriculturalDrone Class:\n" + e.getMessage());}
   }
   
   //********************************* Getters and Setter ************************************************//
