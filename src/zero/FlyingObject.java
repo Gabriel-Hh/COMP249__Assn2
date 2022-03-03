@@ -1,14 +1,24 @@
+/**
+ * Contains FlyingObject Class.
+ */
 package zero;
+
+//
+//Part: 2
+//Written by: Gabriel Horth, 40186942
+//
 
 /** Abstract class to unite all flying objects.
  * This implementation has a common attribute price of type double.
  * It has 3 constructors that can only be called by decendent classes.
  * @author Gabriel Horth
- * @see Airplane
- * @see UAV
+ * @see one.Airplane
+ * @see four.UAV
  */
 public abstract class FlyingObject {
-  
+  /**
+   * Cost is dollars.
+   */
   protected double price; //price in dollars
   
   //********************************** Constructors ****************************************************// 
@@ -22,7 +32,7 @@ public abstract class FlyingObject {
   
   /**
    * Parameterized Constructor for FlyingObject.
-   * @param price
+   * @param price : double cost is dollars
    */
   protected FlyingObject(double price) {
 	this.price = (Math.round(price*100))/100.00;
@@ -30,11 +40,7 @@ public abstract class FlyingObject {
   
   /**
    * Copy Constructor for FlyingObject
-   * @param toCopy FLyingObject to copy
-   * @see FlyingObjectDriver
-   * @see copyFlyingObjects(FlyingObject[], String)
-   * NB: Descendants' copy constructors all accept FlyingObject arg 
-   * to satisfy method copyFlyingObjects(FlyingObject[], String)
+   * @param toCopy FlyingObject to copy
    */
   protected FlyingObject(FlyingObject toCopy) {
 	  price = toCopy.price;
@@ -44,7 +50,7 @@ public abstract class FlyingObject {
   
   /**
    * Getter for price.
-   * @return
+   * @return price : double cost is dollars
    */
   public double getPrice() {
     return price;
@@ -52,7 +58,7 @@ public abstract class FlyingObject {
   
   /**
    * Setter for price.
-   * @param price
+   * @param price cost in dollars
    */
   protected void setPrice(double price) {
     this.price = (Math.round(price*100))/100.00;
@@ -75,7 +81,6 @@ public abstract class FlyingObject {
   /**
    * Polymorphic method to create a copy of a FlyingObject.
    * @param toCopy FlyingObject to copy
-   * @return
    */
   public abstract FlyingObject copy(); //
   

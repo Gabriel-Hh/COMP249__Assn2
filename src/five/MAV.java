@@ -1,10 +1,12 @@
-/**
- * 
- */
 package five;
 
 import four.UAV;
 import zero.FlyingObject;
+
+//
+//Part: 2
+//Written by: Gabriel Horth, 40186942
+//
 
 /**MAV extends UAV.
  * @author Gabriel Horth
@@ -40,14 +42,10 @@ public class MAV extends UAV {
   /**
    * @param toCopy
    */
-  public MAV(FlyingObject toCopy) {
+  public MAV(MAV toCopy) {
 	super(toCopy);
-	try {
-	  MAV cast = (MAV)toCopy;
-	  model = cast.model;
-	  size = cast.size;
-	}
-	catch(Exception e){System.out.println("Copy failed in MAV Class:\n" + e.getMessage());}
+	  model = toCopy.model;
+	  size = toCopy.size;
   }
 
   //********************************* Getters and Setter ************************************************//
@@ -117,6 +115,5 @@ public class MAV extends UAV {
 	return copy;
   }
 
-  
   
 }
