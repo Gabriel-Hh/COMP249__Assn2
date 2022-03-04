@@ -14,12 +14,23 @@ import zero.FlyingObject;
 /**
  * Helicopter extends Airplane
  * @author Gabriel Horth
+ * @version 1.2
  * @see Airplane
  */
 
 public class Helicopter extends Airplane {
+  
+  /**
+   * Cummulative number of cylinders.
+   */
   protected int numberOfCylinders;
+  /**
+   * Year of manufacture.
+   */
   protected int creationYear;
+  /**
+   * Maximum number of passengers.
+   */
   protected int passengerCapacity;
   
   //********************************* Constructors ****************************************************//
@@ -140,8 +151,7 @@ public class Helicopter extends Airplane {
   
   /**
    * Polymorphic method to create a copy of a FlyingObject.
-   * @param toCopy FlyingObject to copy
-   * @return copy
+   * @return copy Copy of FlyingObject
    */
   @Override
   public FlyingObject copy() {

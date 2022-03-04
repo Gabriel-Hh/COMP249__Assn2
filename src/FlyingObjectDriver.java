@@ -15,7 +15,8 @@ import five.MAV;
 /**
  * Driver to test  part-2 methods on FlyingObjects.
  * @author Gabriel Horth
- *
+ * @version 1.2
+ * @see zero.FlyingObject
  */
 public class FlyingObjectDriver {
   
@@ -26,7 +27,6 @@ public class FlyingObjectDriver {
    */
   public static FlyingObject[] copyFlyingObjects(FlyingObject[] toCopy) {
 	FlyingObject[] copy = new FlyingObject[toCopy.length];
-	
 	for (int i = 0; i < copy.length; i++) {
 	 copy[i] = toCopy[i].copy(); 
 	}
@@ -44,8 +44,8 @@ public class FlyingObjectDriver {
   }
 
   /**
-   * Executable that runs required test.
-   * @param args
+   * Executable that runs required test for part 2.
+   * @param args no effect
    */
   public static void main(String[] args) {
 	
@@ -84,7 +84,7 @@ public class FlyingObjectDriver {
 	System.out.println("TEST COMPLETE. Program closing..");
 	System.out.println("---------------------------------------------------------------------------------------\n");
 	
-//	FlyingObject othertest = new FlyingObject(); // <THIS WILL NOT WORK, CANNOT INSTANTIATE AN ABSTRACT CLASS.>
+//	FlyingObject othertest = new FlyingObject(); // <AS EXPECTED, THIS WILL NOT WORK, CANNOT INSTANTIATE AN ABSTRACT CLASS.>
 	System.exit(0);
   }
 

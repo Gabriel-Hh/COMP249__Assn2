@@ -12,12 +12,16 @@ import zero.FlyingObject;
 
 /**Quadcopter extends Helicopter.
  * @author Gabriel Horth
+ * @version 1.2
  * @see Helicopter
  *
  */
 public class Quadcopter extends Helicopter {
   
-  protected int maxFlyingSpeed; //in km/h
+  /**
+   * Maximum speed in km/h.
+   */
+  protected int maxFlyingSpeed; 
   
   //********************************* Constructors ****************************************************//
   
@@ -99,8 +103,7 @@ public class Quadcopter extends Helicopter {
   
   /**
    * Polymorphic method to create a copy of a FlyingObject.
-   * @param toCopy FlyingObject to copy
-   * @return copy
+   * @return copy Copy of FlyingObject
    */
   @Override
   public FlyingObject copy() {

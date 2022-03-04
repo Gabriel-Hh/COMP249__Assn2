@@ -10,12 +10,20 @@ import zero.FlyingObject;
 
 /**MAV extends UAV.
  * @author Gabriel Horth
+ * @version 1.2
+ * @see four.UAV
  *
  */
 public class MAV extends UAV {
 
+  /**
+   * Name of model.
+   */
   private String model;
-  private double size; //in square centimeters
+  /**
+   * Footprint in square centimeters.
+   */
+  private double size; 
   
   
   //********************************** Constructors ****************************************************//
@@ -31,18 +39,21 @@ public class MAV extends UAV {
 
   /**Parameterized Constructor for MAV.
    * @param price
-   * @param weight
+   * @param weight 
+   * @param model
+   * @param size Maximum 300
    */
   public MAV(double price, double weight, String model, double size) {
 	super(price, weight);
 	this.model = model;
-	if(size>300) {System.out.println("MAV size too large, has been set to 300");}
+	if(size>300) {System.out.println("MAV size too large, has been set to 300");
 	size = 300;
+	}
 	this.size = size;
   }
 
-  /**
-   * @param toCopy
+  /**Copy Constructor for MAV.
+   * @param toCopy UAV to copy
    */
   public MAV(MAV toCopy) {
 	super(toCopy);
@@ -52,40 +63,41 @@ public class MAV extends UAV {
 
   //********************************* Getters and Setter ************************************************//
   
-  /**
+  /**Getter for model.
    * @return the model
    */
   public String getModel() {
     return model;
   }
 
-  /**
+  /**Setter for model.
    * @param model the model to set
    */
   public void setModel(String model) {
     this.model = model;
   }
 
-  /**
+  /**Getter for size.
    * @return the size
    */
   public double getSize() {
     return size;
   }
 
-  /**
-   * @param size the size to set
+  /**Setter for size.
+   * @param size Maximum 300
    */
   public void setSize(double size) {
-	if(size>300) {System.out.println("MAV size too large, has been set to 300");}
+	if(size>300) {System.out.println("MAV size too large, has been set to 300");
 	size = 300;
+	}
 	this.size = size;
   }
 
   //********************************** Overrides ********************************************************//
   
   /**
-   * 
+   * toString() method for MAV.
    */
   @Override
   public String toString() {
@@ -94,7 +106,11 @@ public class MAV extends UAV {
   }
 
   /**
-   * 
+   * equals() method for MAV.
+   * @return true if this object is the same as the objargument;
+   * true if this object is of the same dynamic type as the objargument
+   * AND has all equal attribute values; 
+   * false otherwise
    */
   @Override
   public boolean equals(Object obj) {
@@ -110,8 +126,7 @@ public class MAV extends UAV {
   
   /**
    * Polymorphic method to create a copy of a FlyingObject.
-   * @param toCopy FlyingObject to copy
-   * @return copy
+   * @return copy Copy of FlyingObject
    */
   @Override
   public FlyingObject copy() {

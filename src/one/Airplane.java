@@ -13,13 +13,20 @@ import zero.FlyingObject;
 
 /**Airplane extends FlyingObject.
  * @author Gabriel Horth
+ * @version 1.2
  * @see FlyingObject
  * @see Helicopter
  *
  */
 public class Airplane extends FlyingObject{
   
+  /**
+   * Manufactors name.
+   */
   protected String brand;
+  /**
+   * Cummulative horsepower.
+   */
   protected int horsepower;
   
   
@@ -119,8 +126,7 @@ public class Airplane extends FlyingObject{
   
   /**
    * Polymorphic method to create a copy of a FlyingObject.
-   * @param toCopy FlyingObject to copy
-   * @return copy
+   * @return copy Copy of FlyingObject.
    */
   @Override
   public FlyingObject copy() {

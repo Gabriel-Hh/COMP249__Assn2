@@ -12,6 +12,7 @@ package zero;
  * This implementation has a common attribute price of type double.
  * It has 3 constructors that can only be called by decendent classes.
  * @author Gabriel Horth
+ * @version 1.2
  * @see one.Airplane
  * @see four.UAV
  */
@@ -19,7 +20,7 @@ public abstract class FlyingObject {
   /**
    * Cost is dollars.
    */
-  protected double price; //price in dollars
+  protected double price;
   
   //********************************** Constructors ****************************************************// 
   
@@ -32,7 +33,7 @@ public abstract class FlyingObject {
   
   /**
    * Parameterized Constructor for FlyingObject.
-   * @param price : double cost is dollars
+   * @param price Cost is dollars
    */
   protected FlyingObject(double price) {
 	this.price = (Math.round(price*100))/100.00;
@@ -50,7 +51,7 @@ public abstract class FlyingObject {
   
   /**
    * Getter for price.
-   * @return price : double cost is dollars
+   * @return price Cost is dollars
    */
   public double getPrice() {
     return price;
@@ -58,7 +59,7 @@ public abstract class FlyingObject {
   
   /**
    * Setter for price.
-   * @param price cost in dollars
+   * @param price Cost in dollars
    */
   protected void setPrice(double price) {
     this.price = (Math.round(price*100))/100.00;
@@ -80,7 +81,6 @@ public abstract class FlyingObject {
   
   /**
    * Polymorphic method to create a copy of a FlyingObject.
-   * @param toCopy FlyingObject to copy
    */
   public abstract FlyingObject copy(); //
   

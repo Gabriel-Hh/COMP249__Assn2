@@ -13,24 +13,28 @@ import zero.FlyingObject;
 
 /**
  * Multirotor extends Helicopter.
+ * @version 1.2
  * @author Gabriel Horth
  *
  */
 public class Multirotor extends Helicopter {
   
+  /**
+   * Cummulative rotor count.
+   */
   protected int numberOfRotors;
 
   //********************************* Constructors ****************************************************//
   
   /**
-   * 
+   * Default Constructor for Multirotor.
    */
   public Multirotor() {
 	super();
 	numberOfRotors = 0;
   }
 
-  /**
+  /**Parameterized Constructor for Multirotor.
    * 
    * @param price
    * @param brand
@@ -47,8 +51,8 @@ public class Multirotor extends Helicopter {
   }
 
   /**
-   * 
-   * @param toCopy
+   * Copy Constructor for Multirotor.
+   * @param toCopy FlyingObject to copy
    */
   public Multirotor(Multirotor toCopy) {
 	super(toCopy);
@@ -57,14 +61,14 @@ public class Multirotor extends Helicopter {
 
   //********************************* Getters and Setter ************************************************//
   
-  /**
+  /** Getter for numberOfRotors.
    * @return the numberOfRotors
    */
   public int getNumberOfRotors() {
     return numberOfRotors;
   }
 
-  /**
+  /**Setter for numberOfRotors.
    * @param numberOfRotors the numberOfRotors to set
    */
   public void setNumberOfRotors(int numberOfRotors) {
@@ -102,8 +106,7 @@ public class Multirotor extends Helicopter {
   
   /**
    * Polymorphic method to create a copy of a FlyingObject.
-   * @param toCopy FlyingObject to copy
-   * @return copy
+   * @return copy Copy of FlyingObject
    */
   @Override
   public FlyingObject copy() {

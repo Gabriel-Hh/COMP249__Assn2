@@ -13,11 +13,16 @@ import zero.FlyingObject;
 /**
  * UAV extends FlyingObject.
  * @author Gabriel Horth
+ * @version 1.2
+ * @see zero.FlyingObject
  *
  */
 public class UAV extends FlyingObject {
   
-  protected double weight; //weight in kg.
+  /**
+   * Weight in kg.
+   */
+  protected double weight;
 
   //********************************** Constructors ****************************************************// 
   
@@ -94,8 +99,7 @@ public class UAV extends FlyingObject {
   
   /**
    * Polymorphic method to create a copy of a FlyingObject.
-   * @param toCopy FlyingObject to copy
-   * @return copy
+   * @return copy Copy of FlyingObject
    */
   @Override
   public FlyingObject copy() {

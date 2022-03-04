@@ -13,11 +13,19 @@ import zero.FlyingObject;
 
 /**AgriculturalDrone extends UAV.
  * @author Gabriel Horth
+ * @version 1.2
+ * @see four.UAV
  *
  */
 public class AgriculturalDrone extends UAV {
 
+  /**
+   * Manufactors name.
+   */
   protected String brand;
+  /**
+   * Maximum load in kg.
+   */
   protected int carryCapacity; //in kg
   
   //********************************** Constructors ****************************************************// 
@@ -114,8 +122,7 @@ public class AgriculturalDrone extends UAV {
   
   /**
    * Polymorphic method to create a copy of a FlyingObject.
-   * @param toCopy FlyingObject to copy
-   * @return copy
+   * @return copy COpy of FlyingObject
    */
   @Override
   public FlyingObject copy() {
