@@ -51,7 +51,7 @@ public class AgriculturalDrone extends UAV {
 	this.carryCapacity = carryCapacity;
   }
 
-  /**Copy COnstructor for AgriculturalDrone.
+  /**Copy Constructor for AgriculturalDrone.
    * @param toCopy AgriculturalDrone to copy
    */
   public AgriculturalDrone(AgriculturalDrone toCopy) {
@@ -122,7 +122,7 @@ public class AgriculturalDrone extends UAV {
   
   /**
    * Polymorphic method to create a copy of a FlyingObject.
-   * @return copy COpy of FlyingObject
+   * @return copy Copy of FlyingObject
    */
   @Override
   public FlyingObject copy() {

@@ -15,7 +15,7 @@ import zero.FlyingObject;
  * Multirotor extends Helicopter.
  * @version 1.2
  * @author Gabriel Horth
- *
+ * @see two.Helicopter
  */
 public class Multirotor extends Helicopter {
   

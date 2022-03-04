@@ -19,17 +19,17 @@ public class MAV extends UAV {
   /**
    * Name of model.
    */
-  private String model;
+  protected String model;
   /**
    * Footprint in square centimeters.
    */
-  private double size; 
+  protected double size; 
   
   
   //********************************** Constructors ****************************************************//
   
   /**
-   * Default COnstructor for MAV.
+   * Default Constructor for MAV.
    */
   public MAV() {
 	super();
@@ -53,7 +53,7 @@ public class MAV extends UAV {
   }
 
   /**Copy Constructor for MAV.
-   * @param toCopy UAV to copy
+   * @param toCopy MAV to copy
    */
   public MAV(MAV toCopy) {
 	super(toCopy);

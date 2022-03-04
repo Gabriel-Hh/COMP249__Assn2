@@ -23,7 +23,7 @@ public class FlyingObjectDriver {
   /**
    * Polymorphic FlyingObject[] copy method.
    * @param toCopy array to copy
-   * @return copy[] copy of toCopy[]
+   * @return copy Copy of array
    */
   public static FlyingObject[] copyFlyingObjects(FlyingObject[] toCopy) {
 	FlyingObject[] copy = new FlyingObject[toCopy.length];
@@ -52,7 +52,7 @@ public class FlyingObjectDriver {
 	System.out.println("\t\t\tWELCOME TO THE PART 2 DRIVER");
 	
 	System.out.println("\n---------------------------------------------------------------------------------------");
-	System.out.println("First we created a test array and displayed it contents:");
+	System.out.println("First we created a test array and displayed below:");
 	System.out.println("---------------------------------------------------------------------------------------\n");
 	FlyingObject[] testArray = new FlyingObject[15];
 	testArray[0] = new Airplane(1200000,"Boeing",8040);
