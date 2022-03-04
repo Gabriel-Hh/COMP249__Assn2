@@ -10,8 +10,8 @@ package zero;
  * It has 3 constructors that can only be called by decendent classes.
  * @author Gabriel Horth
  * @version 1.1
- * @see Airplane
- * @see UAV
+ * @see one.Airplane
+ * @see four.UAV
  */
 public abstract class FlyingObject {
   
