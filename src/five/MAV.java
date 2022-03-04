@@ -18,7 +18,7 @@ public class MAV extends UAV {
   //********************************** Constructors ****************************************************//
   
   /**
-   * Default COnstructor for MAV.
+   * Default Constructor for MAV.
    */
   public MAV() {
 	super();
@@ -33,6 +33,8 @@ public class MAV extends UAV {
   public MAV(double price, double weight, String model, double size) {
 	super(price, weight);
 	this.model = model;
+	if(size>300) {System.out.println("MAV size too large, has been set to 300");}
+	size = 300;
 	this.size = size;
   }
 
@@ -72,7 +74,9 @@ public class MAV extends UAV {
    * @param size the size to set
    */
   public void setSize(double size) {
-    this.size = size;
+	if(size>300) {System.out.println("MAV size too large, has been set to 300");}
+	size = 300;
+	this.size = size;
   }
 
   //********************************** Overrides ********************************************************//
