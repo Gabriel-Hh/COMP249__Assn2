@@ -22,7 +22,7 @@ import five.MAV;
 public class FlyingObjectDriver {
 
   /**
-   * Prints to screen a numbered list of FlyingObjects is array.
+   * Prints to screen a numbered list of FlyingObjects in array.
    * @param toPrint array to print
    */
   public static void print(FlyingObject[] toPrint) {
