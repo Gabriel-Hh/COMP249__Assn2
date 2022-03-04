@@ -14,7 +14,7 @@ import five.MAV;
 //
 
 /**
- * Driver to test methods on FLyingObjects for Part 1.
+ * Driver to test methods on FlyingObjects for Part 1.
  * @author Gabriel Horth
  * @version 1.1
  *

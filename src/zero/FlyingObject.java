@@ -49,7 +49,7 @@ public abstract class FlyingObject {
   
   /**
    * Getter for price.
-   * @return
+   * @return price Cost in dollars
    */
   public double getPrice() {
     return price;

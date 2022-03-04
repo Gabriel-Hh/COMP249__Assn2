@@ -19,11 +19,11 @@ public class MAV extends UAV {
   /**
    * Model name.
    */
-  private String model;
+  protected String model;
   /**
    * Footprint in square centimeters.
    */
-  private double size; //in square centimeters
+  protected double size; //in square centimeters
   
   
   //********************************** Constructors ****************************************************//
@@ -50,7 +50,7 @@ public class MAV extends UAV {
   }
 
   /**Copy Constructor for MAV.
-   * @param toCopy
+   * @param toCopy MAV to copy
    */
   public MAV(MAV toCopy) {
 	super(toCopy);
@@ -60,28 +60,28 @@ public class MAV extends UAV {
 
   //********************************* Getters and Setter ************************************************//
   
-  /**
-   * @return the model
+  /**Getter for model.
+   * @return model
    */
   public String getModel() {
     return model;
   }
 
-  /**
+  /**Setter for model.
    * @param model the model to set
    */
   public void setModel(String model) {
     this.model = model;
   }
 
-  /**
-   * @return the size
+  /**Getter for size.
+   * @return size
    */
   public double getSize() {
     return size;
   }
 
-  /**
+  /**Setter for size.
    * @param size the size to set
    */
   public void setSize(double size) {
@@ -93,7 +93,7 @@ public class MAV extends UAV {
   //********************************** Overrides ********************************************************//
   
   /**
-   * ToString() method for MAV.
+   * toString() method for MAV.
    */
   @Override
   public String toString() {

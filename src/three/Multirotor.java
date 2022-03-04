@@ -57,14 +57,14 @@ public class Multirotor extends Helicopter {
 
   //********************************* Getters and Setter ************************************************//
   
-  /**
-   * @return the numberOfRotors
+  /**Getter for numberOfRotors.
+   * @return numberOfRotors
    */
   public int getNumberOfRotors() {
     return numberOfRotors;
   }
 
-  /**
+  /**Setter for numberOfRotors.
    * @param numberOfRotors the numberOfRotors to set
    */
   public void setNumberOfRotors(int numberOfRotors) {
