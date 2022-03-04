@@ -7,17 +7,19 @@ import four.UAV;
 import five.AgriculturalDrone;
 import five.MAV;
 
-//import java.lang.reflect.Constructor;
-//import java.lang.reflect.InvocationTargetException;
 
-
+//
+//Part: 1
+//Written by: Gabriel Horth, 40186942
+//
 
 /**
- * Driver to test methods on FLyingObjects.
+ * Driver to test methods on FLyingObjects for Part 1.
  * @author Gabriel Horth
+ * @version 1.1
  *
  */
-public class FLyingObjectDriver {
+public class FlyingObjectDriver {
 
   /**
    * Prints to screen a numbered list of FlyingObjects is array.
@@ -30,7 +32,7 @@ public class FLyingObjectDriver {
   }
 
   /**
-   * Finds and displays least UAV
+   * Finds and displays least and most expensive UAV.
    * @param toSearch FlyingObject[] to search
    */
   public static void findLeastAndMostExpensiveUAV(FlyingObject[] toSearch) {

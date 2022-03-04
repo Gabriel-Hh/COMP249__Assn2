@@ -1,21 +1,29 @@
 package three;
 
 import two.Helicopter;
-import zero.FlyingObject;
+
+//
+//Part: 1
+//Written by: Gabriel Horth, 40186942
+//
 
 /**
  * Multirotor extends Helicopter.
  * @author Gabriel Horth
+ * @version 1.1
  *
  */
 public class Multirotor extends Helicopter {
   
+  /**
+   * Cummulative rotor count.
+   */
   protected int numberOfRotors;
 
   //********************************* Constructors ****************************************************//
   
   /**
-   * 
+   * Default constructor for Multirotor.
    */
   public Multirotor() {
 	super();
@@ -23,7 +31,7 @@ public class Multirotor extends Helicopter {
   }
 
   /**
-   * 
+   * Parametrized constructor for Multirotor.
    * @param price
    * @param brand
    * @param horsepower
@@ -39,8 +47,8 @@ public class Multirotor extends Helicopter {
   }
 
   /**
-   * 
-   * @param toCopy
+   * Copy constructor for Multirotor.
+   * @param toCopy Multirotor to copy.
    */
   public Multirotor(Multirotor toCopy) {
 	super(toCopy);
@@ -93,54 +101,54 @@ public class Multirotor extends Helicopter {
   }
 
 //************************************** TEST ********************************************************//  
-  public static void main(String[] args) {
-	
-	System.out.println("Default constructor:");
-	Multirotor test = new Multirotor();
-	System.out.println(test);
-	
-	System.out.println("\nParam constructor:");
-	Multirotor test2 = new Multirotor(1200000,"Boeing",8000,12,2006,10,2);
-	System.out.println(test2);
-	
-	System.out.println("\ntest3 is created with the copy constructor:");
-	Multirotor test3 = new Multirotor(test2);
-	System.out.println(test3);
-	if(test2 == test3) {System.out.println("Multirotor 2 and 3 are to same object");}
-	else {System.out.println("Multirotor 2 and 3 are not the same object.");}
-	System.out.println("However, do they have equal values? " + test2.equals(test3));
-	
-	
-	System.out.println("\ntest4 is created with the param constructor:");
-	Multirotor test4 = new Multirotor(1200000,"Boeing",8000,12,2006,10,2);
-	System.out.println(test4);
-	if(test2 == test4) {System.out.println("Multirotor 2 and 4 are to same object");}
-	else {System.out.println("Multirotor 2 and 4 are not the same object.");}
-	System.out.println("Do test4 and test2 they have equal values? " + test2.equals(test4));
-	
-	
-	System.out.println("\nsetPrice() on test4:");
-	test4.setPrice(600000);
-	System.out.println(test4);
-	System.out.println("Still equal values: " + test2.equals(test4));
-	
-	System.out.println("\ntest5 points at test2:");
-	Multirotor test5 = new Multirotor();
-	test5 = test2;
-	System.out.println(test5);
-	if(test2 == test5) {System.out.println("Multirotor 2 and 5 are to same object");}
-	else {System.out.println("Multirotor 2 and 5 are not the same object.");}
-	System.out.println("Do they have equal values? " + test2.equals(test5));
-	
-	System.out.println("\ntest6 is of static type FlyingObject, made through copy:");
-	FlyingObject test6 = new Multirotor(test2);
-	System.out.println(test6);
-	if(test2 == test6) {System.out.println("Multirotor 2 and 6 are to same object");}
-	else {System.out.println("Multirotor 2 and 5 are not the same object.");}
-	System.out.println("Do they have equal values? " + test2.equals(test6));
-	
-//	FlyingObject test5 = new FlyingObject(8); // cant do, as expected
-
-  }
+//  public static void main(String[] args) {
+//	
+//	System.out.println("Default constructor:");
+//	Multirotor test = new Multirotor();
+//	System.out.println(test);
+//	
+//	System.out.println("\nParam constructor:");
+//	Multirotor test2 = new Multirotor(1200000,"Boeing",8000,12,2006,10,2);
+//	System.out.println(test2);
+//	
+//	System.out.println("\ntest3 is created with the copy constructor:");
+//	Multirotor test3 = new Multirotor(test2);
+//	System.out.println(test3);
+//	if(test2 == test3) {System.out.println("Multirotor 2 and 3 are to same object");}
+//	else {System.out.println("Multirotor 2 and 3 are not the same object.");}
+//	System.out.println("However, do they have equal values? " + test2.equals(test3));
+//	
+//	
+//	System.out.println("\ntest4 is created with the param constructor:");
+//	Multirotor test4 = new Multirotor(1200000,"Boeing",8000,12,2006,10,2);
+//	System.out.println(test4);
+//	if(test2 == test4) {System.out.println("Multirotor 2 and 4 are to same object");}
+//	else {System.out.println("Multirotor 2 and 4 are not the same object.");}
+//	System.out.println("Do test4 and test2 they have equal values? " + test2.equals(test4));
+//	
+//	
+//	System.out.println("\nsetPrice() on test4:");
+//	test4.setPrice(600000);
+//	System.out.println(test4);
+//	System.out.println("Still equal values: " + test2.equals(test4));
+//	
+//	System.out.println("\ntest5 points at test2:");
+//	Multirotor test5 = new Multirotor();
+//	test5 = test2;
+//	System.out.println(test5);
+//	if(test2 == test5) {System.out.println("Multirotor 2 and 5 are to same object");}
+//	else {System.out.println("Multirotor 2 and 5 are not the same object.");}
+//	System.out.println("Do they have equal values? " + test2.equals(test5));
+//	
+//	System.out.println("\ntest6 is of static type FlyingObject, made through copy:");
+//	FlyingObject test6 = new Multirotor(test2);
+//	System.out.println(test6);
+//	if(test2 == test6) {System.out.println("Multirotor 2 and 6 are to same object");}
+//	else {System.out.println("Multirotor 2 and 5 are not the same object.");}
+//	System.out.println("Do they have equal values? " + test2.equals(test6));
+//	
+////	FlyingObject test5 = new FlyingObject(8); // cant do, as expected
+//
+//  }
   
 }

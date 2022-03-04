@@ -5,13 +5,24 @@ package five;
 
 import four.UAV;
 
+//
+//Part: 1
+//Written by: Gabriel Horth, 40186942
+//
+
 /**MAV extends UAV.
  * @author Gabriel Horth
- *
+ * @version 1.1
  */
 public class MAV extends UAV {
-
+  
+  /**
+   * Model name.
+   */
   private String model;
+  /**
+   * Footprint in square centimeters.
+   */
   private double size; //in square centimeters
   
   
@@ -38,7 +49,7 @@ public class MAV extends UAV {
 	this.size = size;
   }
 
-  /**
+  /**Copy Constructor for MAV.
    * @param toCopy
    */
   public MAV(MAV toCopy) {
@@ -82,7 +93,7 @@ public class MAV extends UAV {
   //********************************** Overrides ********************************************************//
   
   /**
-   * 
+   * ToString() method for MAV.
    */
   @Override
   public String toString() {
@@ -91,7 +102,11 @@ public class MAV extends UAV {
   }
 
   /**
-   * 
+   * equals() method for MAV.
+   * @return true if this object is the same as the objargument;
+   * true if this object is of the same dynamic type as the objargument
+   * AND has all equal attribute values; 
+   * false otherwise
    */
   @Override
   public boolean equals(Object obj) {

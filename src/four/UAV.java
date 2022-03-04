@@ -2,14 +2,23 @@ package four;
 
 import zero.FlyingObject;
 
+//
+//Part: 1
+//Written by: Gabriel Horth, 40186942
+//
+
 /**
- * 
- * @author user
+ * UAV extends FlyingObject.
+ * @author Gabriel Horth
+ * @version 1.1
  *
  */
 public class UAV extends FlyingObject {
   
-  protected double weight; //weight in kg.
+  /**
+   * weight in kg.
+   */
+  protected double weight; 
 
   //********************************** Constructors ****************************************************// 
   
@@ -85,55 +94,55 @@ public class UAV extends FlyingObject {
   }
 
 //************************************** TEST ********************************************************//  
-  
-  public static void main(String[] args) {
-	
-	System.out.println("Default constructor:");
-	UAV test = new UAV();
-	System.out.println(test);
-	
-	System.out.println("\nParam constructor:");
-	UAV test2 = new UAV(2000,11);
-	System.out.println(test2);
-	
-	System.out.println("\ntest3 is created with the copy constructor:");
-	UAV test3 = new UAV(test2);
-	System.out.println(test3);
-	if(test2 == test3) {System.out.println("UAV 2 and 3 are to same object");}
-	else {System.out.println("UAV 2 and 3 are not the same object.");}
-	System.out.println("However, do they have equal values? " + test2.equals(test3));
-	
-	
-	System.out.println("\ntest4 is created with the param constructor:");
-	UAV test4 = new UAV(2000,11);
-	System.out.println(test4);
-	if(test2 == test4) {System.out.println("UAV 2 and 4 are to same object");}
-	else {System.out.println("UAV 2 and 4 are not the same object.");}
-	System.out.println("Do test4 and test2 they have equal values? " + test2.equals(test4));
-	
-	
-	System.out.println("\nsetPrice() on test4:");
-	test4.setPrice(1400);
-	System.out.println(test4);
-	System.out.println("Still equal values: " + test2.equals(test4));
-	
-	System.out.println("\ntest5 points at test2:");
-	UAV test5 = new UAV();
-	test5 = test2;
-	System.out.println(test5);
-	if(test2 == test5) {System.out.println("UAV 2 and 5 are to same object");}
-	else {System.out.println("UAV 2 and 5 are not the same object.");}
-	System.out.println("Do they have equal values? " + test2.equals(test5));
-	
-	System.out.println("\ntest6 is of static type FlyingObject, made through copy:");
-	FlyingObject test6 = new UAV(test2);
-	System.out.println(test6);
-	if(test2 == test6) {System.out.println("UAV 2 and 6 are to same object");}
-	else {System.out.println("UAV 2 and 5 are not the same object.");}
-	System.out.println("Do they have equal values? " + test2.equals(test6));
-	
-//	FlyingObject test5 = new FlyingObject(8); // cant do, as expected
-
-  }
+//  
+//  public static void main(String[] args) {
+//	
+//	System.out.println("Default constructor:");
+//	UAV test = new UAV();
+//	System.out.println(test);
+//	
+//	System.out.println("\nParam constructor:");
+//	UAV test2 = new UAV(2000,11);
+//	System.out.println(test2);
+//	
+//	System.out.println("\ntest3 is created with the copy constructor:");
+//	UAV test3 = new UAV(test2);
+//	System.out.println(test3);
+//	if(test2 == test3) {System.out.println("UAV 2 and 3 are to same object");}
+//	else {System.out.println("UAV 2 and 3 are not the same object.");}
+//	System.out.println("However, do they have equal values? " + test2.equals(test3));
+//	
+//	
+//	System.out.println("\ntest4 is created with the param constructor:");
+//	UAV test4 = new UAV(2000,11);
+//	System.out.println(test4);
+//	if(test2 == test4) {System.out.println("UAV 2 and 4 are to same object");}
+//	else {System.out.println("UAV 2 and 4 are not the same object.");}
+//	System.out.println("Do test4 and test2 they have equal values? " + test2.equals(test4));
+//	
+//	
+//	System.out.println("\nsetPrice() on test4:");
+//	test4.setPrice(1400);
+//	System.out.println(test4);
+//	System.out.println("Still equal values: " + test2.equals(test4));
+//	
+//	System.out.println("\ntest5 points at test2:");
+//	UAV test5 = new UAV();
+//	test5 = test2;
+//	System.out.println(test5);
+//	if(test2 == test5) {System.out.println("UAV 2 and 5 are to same object");}
+//	else {System.out.println("UAV 2 and 5 are not the same object.");}
+//	System.out.println("Do they have equal values? " + test2.equals(test5));
+//	
+//	System.out.println("\ntest6 is of static type FlyingObject, made through copy:");
+//	FlyingObject test6 = new UAV(test2);
+//	System.out.println(test6);
+//	if(test2 == test6) {System.out.println("UAV 2 and 6 are to same object");}
+//	else {System.out.println("UAV 2 and 5 are not the same object.");}
+//	System.out.println("Do they have equal values? " + test2.equals(test6));
+//	
+////	FlyingObject test5 = new FlyingObject(8); // cant do, as expected
+//
+//  }
   
 }

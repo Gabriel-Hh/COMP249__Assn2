@@ -5,14 +5,24 @@ package five;
 
 import four.UAV;
 
+//
+//Part: 1
+//Written by: Gabriel Horth, 40186942
+//
+
 /**AgriculturalDrone extends UAV.
  * @author Gabriel Horth
- *
+ * @version 1.1
  */
 public class AgriculturalDrone extends UAV {
-
+  /**
+   * Manufactor's name.
+   */
   protected String brand;
-  protected int carryCapacity; //in kg
+  /**
+   * Maximum load in kg.
+   */
+  protected int carryCapacity;
   
   //********************************** Constructors ****************************************************// 
   

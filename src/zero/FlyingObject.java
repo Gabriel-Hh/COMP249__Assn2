@@ -1,14 +1,23 @@
 package zero;
 
+//
+//Part: 1
+//Written by: Gabriel Horth, 40186942
+//
+
 /** Abstract class to unite all flying objects.
  * This implementation has a common attribute price of type double.
  * It has 3 constructors that can only be called by decendent classes.
  * @author Gabriel Horth
+ * @version 1.1
  * @see Airplane
  * @see UAV
  */
 public abstract class FlyingObject {
   
+  /**
+   * Cost in dollars.
+   */
   protected double price; //price in dollars
   
   //********************************** Constructors ****************************************************// 
