@@ -17,7 +17,7 @@ import five.MAV;
  * @author Gabriel Horth
  *
  */
-public class FLyingObjectDriver {
+public class FlyingObjectDriver {
   
   /**
    * Polymorphic FlyingObject[] copy method.
