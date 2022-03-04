@@ -43,16 +43,11 @@ public class Airplane extends FlyingObject{
    * Copy Constructor for Airplane.
    * @param toCopy Airplaine to copy
    */
-  public Airplane(FlyingObject toCopy){ 
+  public Airplane(Airplane toCopy){ 
 	super(toCopy);
-	try {
-	 Airplane cast = new Airplane(); 
-	 cast = (Airplane)toCopy;
-	 brand = cast.brand;
-	 price = cast.price;
-	 horsepower = cast.horsepower;
-	}
-	catch(Exception e){System.out.println("Copy failed in Airplane Class:\n" + e.getMessage());;}
+	 brand = toCopy.brand;
+	 price = toCopy.price;
+	 horsepower = toCopy.horsepower;
   }
   
   

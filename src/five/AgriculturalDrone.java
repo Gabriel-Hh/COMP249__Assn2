@@ -4,7 +4,6 @@
 package five;
 
 import four.UAV;
-import zero.FlyingObject;
 
 /**AgriculturalDrone extends UAV.
  * @author Gabriel Horth
