@@ -10,7 +10,7 @@ import zero.FlyingObject;
 /**
  * UAV extends FlyingObject.
  * @author Gabriel Horth
- * @version 1.1
+ * @version 1.1.01
  *
  */
 public class UAV extends FlyingObject {
@@ -87,7 +87,7 @@ public class UAV extends FlyingObject {
 	  return true;
 	if (obj == null)
 	  return false;
-	if (getClass() != obj.getClass())
+	if (!(obj instanceof UAV))
 	  return false;
 	UAV other = (UAV) obj;
 	return weight == other.weight && price == other.price;

@@ -12,7 +12,7 @@ import four.UAV;
 
 /**MAV extends UAV.
  * @author Gabriel Horth
- * @version 1.1
+ * @version 1.1.01
  */
 public class MAV extends UAV {
   
@@ -116,7 +116,7 @@ public class MAV extends UAV {
 	  return true;
 	if (!super.equals(obj))
 	  return false;
-	if (getClass() != obj.getClass())
+	if (!(obj instanceof MAV))
 	  return false;
 	MAV other = (MAV) obj;
 	return model == other.model && size == other.size;
