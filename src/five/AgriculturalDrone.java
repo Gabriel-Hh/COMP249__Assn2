@@ -36,18 +36,16 @@ public class AgriculturalDrone extends UAV {
 	this.carryCapacity = carryCapacity;
   }
 
-  /**Copy COnstructor for AgriculturalDrone.
+  /**Copy Constructor for AgriculturalDrone.
    * @param toCopy AgriculturalDrone to copy
    */
-  public AgriculturalDrone(FlyingObject toCopy) {
+  public AgriculturalDrone(AgriculturalDrone toCopy) {
 	super(toCopy);
-	try {
-	  AgriculturalDrone cast = (AgriculturalDrone)toCopy;
-	  brand = cast.brand;
-	  carryCapacity = cast.carryCapacity;
+	
+	  brand = toCopy.brand;
+	  carryCapacity = toCopy.carryCapacity;
 	}
-	catch(Exception e){System.out.println("Copy failed in AgriculturalDrone Class:\n" + e.getMessage());}
-  }
+	
   
   //********************************* Getters and Setter ************************************************//
 

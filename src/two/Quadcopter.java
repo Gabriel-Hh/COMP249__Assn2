@@ -41,14 +41,12 @@ public class Quadcopter extends Helicopter {
   /**Copy Constructor for Quadcopter.
    * @param toCopy Quadcopter to copy
    */
-  public Quadcopter(FlyingObject toCopy) {
+  public Quadcopter(Quadcopter toCopy) {
 	super(toCopy);
-	try {
-	Quadcopter cast = (Quadcopter)toCopy;
-	maxFlyingSpeed = cast.maxFlyingSpeed;
+	
+	maxFlyingSpeed = toCopy.maxFlyingSpeed;
 	}
-	catch(Exception e){System.out.println("Copy failed in Quadcopter Class:\n" + e.getMessage());}
-  }
+	
 
   //********************************* Getters and Setter ************************************************//
   
@@ -88,11 +86,9 @@ public class Quadcopter extends Helicopter {
   public boolean equals(Object obj) {
 	if (this == obj)
 	  return true;
-	if (obj == null)
+	if (!super.equals(obj))
 	  return false;
 	if (getClass() != obj.getClass())
-	  return false;
-	if (!super.equals(obj))
 	  return false;
 	Quadcopter other = (Quadcopter) obj;
 	return maxFlyingSpeed == other.maxFlyingSpeed;

@@ -48,16 +48,14 @@ public class Helicopter extends Airplane {
    * Copy constructor for Helicopter.
    * @param toCopy Helicopter to copy
    */
-  public Helicopter(FlyingObject toCopy) {
+  public Helicopter(Helicopter toCopy) {
 	super(toCopy);
-	try {
-	  Helicopter cast = (Helicopter)toCopy;
-	  numberOfCylinders = cast.numberOfCylinders;
-	  creationYear = cast.creationYear;
-	  passengerCapacity = cast.passengerCapacity;
-	}
-	catch(Exception e) {System.out.println("Copy failed in Helicopter Class:\n" + e.getMessage());}
-  }
+	
+	  numberOfCylinders = toCopy.numberOfCylinders;
+	  creationYear = toCopy.creationYear;
+	  passengerCapacity = toCopy.passengerCapacity;
+}
+	
   
   //********************************* Getters and Setter ************************************************//
   
@@ -128,8 +126,6 @@ public class Helicopter extends Airplane {
   public boolean equals(Object obj) {
 	if (this == obj)
 	  return true;
-	if (obj == null)
-	  return false;
 	if (getClass() != obj.getClass())
 	  return false;
 	if (!super.equals(obj))

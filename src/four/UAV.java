@@ -34,14 +34,12 @@ public class UAV extends FlyingObject {
    * Copy Constructor for UAV.
    * @param toCopy UAV to copy
    */
-  public UAV(FlyingObject toCopy) {
+  public UAV(UAV toCopy) {
 	super(toCopy);
-	try {
-	  UAV cast = (UAV)toCopy;
-	  weight = cast.weight;
+	
+	  weight = toCopy.weight;
 	}
-	catch(Exception e){System.out.println("Copy failed in UAV Class:\n" + e.getMessage());}
-  }
+	
 
   //********************************* Getters and Setter ************************************************//
   

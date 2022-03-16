@@ -54,7 +54,7 @@ public abstract class FlyingObject {
    * Setter for price.
    * @param price
    */
-  protected void setPrice(double price) {
+  public void setPrice(double price) {
     this.price = (Math.round(price*100))/100.00;
   }
 

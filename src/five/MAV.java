@@ -40,15 +40,13 @@ public class MAV extends UAV {
   /**
    * @param toCopy
    */
-  public MAV(FlyingObject toCopy) {
+  public MAV(MAV toCopy) {
 	super(toCopy);
-	try {
-	  MAV cast = (MAV)toCopy;
-	  model = cast.model;
-	  size = cast.size;
+	
+	  model = toCopy.model;
+	  size = toCopy.size;
 	}
-	catch(Exception e){System.out.println("Copy failed in MAV Class:\n" + e.getMessage());}
-  }
+	
 
   //********************************* Getters and Setter ************************************************//
   

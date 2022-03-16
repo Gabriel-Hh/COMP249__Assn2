@@ -42,14 +42,12 @@ public class Multirotor extends Helicopter {
    * 
    * @param toCopy
    */
-  public Multirotor(FlyingObject toCopy) {
+  public Multirotor(Multirotor toCopy) {
 	super(toCopy);
-	try {
-	  Multirotor cast = (Multirotor)toCopy;
-	  numberOfRotors = cast.numberOfRotors;
+	
+	  numberOfRotors = toCopy.numberOfRotors;
 	}
-	catch(Exception e){System.out.println("Copy failed in Multirotor Class:\n" + e.getMessage());}
-  }
+	
 
   //********************************* Getters and Setter ************************************************//
   

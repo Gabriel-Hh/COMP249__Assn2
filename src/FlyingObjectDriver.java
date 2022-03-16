@@ -38,8 +38,6 @@ public class FlyingObjectDriver {
    * @param weirdmethod String to distiguish method signature
    * @return copy[] copy of toCopy[]
    * 
-   * WARNING: This method required a change the copyConstructors of all eligible classes to  accept a FlyingObject arg.
-   * This method is only for proof of concept. 
    * 
    * NB: In this implementation the method is a constructor, therefore they all call super().
    * This defeats the purpose of this work-around and reaffirms that a polymorphic method is most appropriate.
@@ -59,8 +57,8 @@ public class FlyingObjectDriver {
 
 		for(int i = 0; i < copy.length; i++) {
 		  try {
-			Constructor<?> copyConstructor = (toCopy[i].getClass().getConstructor(FlyingObject.class));
-			copy[i] = (FlyingObject) copyConstructor.newInstance(toCopy[i]);
+			Constructor<?> copyConstructor = (toCopy[i].getClass().getConstructor(toCopy[i].getClass()));
+			copy[i] = toCopy[i].getClass().cast(copyConstructor.newInstance(toCopy[i]));
 		  } 
 		  catch (NoSuchMethodException e) {System.out.println("Constructor not found: \n" + e.getMessage());}
 		  catch (SecurityException e) {System.out.println("Security Violation: \n" + e.getMessage() );}
@@ -93,7 +91,7 @@ public class FlyingObjectDriver {
 	testArray[6] = new Multirotor(500000,"Bothezat",2000,12,1922,6,3);
 	testArray[7] = new Multirotor(800000,"Cierva",4800,18,1948,10,3);
 	testArray[8] = new UAV(500,10);
-	testArray[9] = new UAV(testArray[8]);
+	testArray[9] = new UAV((UAV)testArray[8]);
 	testArray[10] = new AgriculturalDrone(3800,400,"Volocopter",200);
 	testArray[11] = new AgriculturalDrone(2000,100,"DJI",10);
 	testArray[12] = new MAV(200,1,"Entomopter",225);
@@ -102,28 +100,25 @@ public class FlyingObjectDriver {
 	
 	print(testArray);
 	
-	//MAV -> Airplane cast
-	FlyingObject test = new Airplane(testArray[12]);
-	System.out.println(test);
 	
-	//Multirotor -> Airplane cast
-	test = new Airplane(testArray[6]);
+//	Multirotor -> Airplane cast
+	Airplane test = new Airplane((Airplane)testArray[6]);
 	System.out.println(test);
 	
 	
-//	System.out.println("\n\n---------------------------------------------------------------------------------------");
-//	System.out.println("Then we made make a copy of the array through a polymorphic method, displayed below:");
-//	System.out.println("---------------------------------------------------------------------------------------\n");
-//	
-//	FlyingObject[] copy = copyFlyingObjects(testArray);
-//	print(copy);
-//
-//	System.out.println("\n\n---------------------------------------------------------------------------------------");
-//	System.out.println("Here made a copy of the array through directed constructor access:");
-//	System.out.println("---------------------------------------------------------------------------------------\n");
-//	
-//	FlyingObject[] copy2 = copyFlyingObjects(testArray,"alternative method");
-//	print(copy2);
+	System.out.println("\n\n---------------------------------------------------------------------------------------");
+	System.out.println("Then we made make a copy of the array through a polymorphic method, displayed below:");
+	System.out.println("---------------------------------------------------------------------------------------\n");
+	
+	FlyingObject[] copy = copyFlyingObjects(testArray);
+	print(copy);
+
+	System.out.println("\n\n---------------------------------------------------------------------------------------");
+	System.out.println("Here made a copy of the array through directed constructor access:");
+	System.out.println("---------------------------------------------------------------------------------------\n");
+	
+	FlyingObject[] copy2 = copyFlyingObjects(testArray,"alternative method");
+	print(copy2);
 	
 //	FlyingObject othertest = new FlyingObject(); // <THIS WILL NOT WORK, CANNOT INSTANTIATE AN ABSTRACT CLASS.>
   }
