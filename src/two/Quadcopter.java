@@ -88,9 +88,11 @@ public class Quadcopter extends Helicopter {
   public boolean equals(Object obj) {
 	if (this == obj)
 	  return true;
-	if (!super.equals(obj))
+	if (obj == null)
 	  return false;
 	if (getClass() != obj.getClass())
+	  return false;
+	if (!super.equals(obj))
 	  return false;
 	Quadcopter other = (Quadcopter) obj;
 	return maxFlyingSpeed == other.maxFlyingSpeed;
