@@ -35,7 +35,7 @@ public class FlyingObjectDriver {
   /**
    * Alternative FlyingObject[] copy method.
    * @param toCopy array to copy
-   * @param weirdmethod String to distiguish method signature
+   * @param alternativeMethod String to distiguish method signature
    * @return copy[] copy of toCopy[]
    * 
    * 
@@ -101,9 +101,9 @@ public class FlyingObjectDriver {
 	print(testArray);
 	
 	
-//	Multirotor -> Airplane cast
-	Airplane test = new Airplane((Airplane)testArray[6]);
-	System.out.println(test);
+////	Multirotor -> Airplane cast
+//	Airplane test = new Airplane((Airplane)testArray[6]);
+//	System.out.println(test);
 	
 	
 	System.out.println("\n\n---------------------------------------------------------------------------------------");
