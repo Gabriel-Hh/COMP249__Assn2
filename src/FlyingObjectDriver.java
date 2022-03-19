@@ -7,16 +7,24 @@ import four.UAV;
 import five.AgriculturalDrone;
 import five.MAV;
 
+
 import java.lang.reflect.Constructor;// Probably PROHIBITED. Not used by polymorphic copyFlyingObject() method.
-									 //ONLY USED BY alternative copyFlyingObject() method.
+//Only used by alternative copyFlyingObject() method.
+
+
+
+import javax.script.*;
+import java.lang.Exception.*;
+									
 
 
 /**
  * Driver to test methods on FlyingObjects.
  * @author Gabriel Horth
+ * @version 1.2B
  *
  */
-public class FlyingObjectDriver {
+public class FlyingObjectDriver  {
   
   /**
    * Polymorphic FlyingObject[] copy method.
@@ -25,7 +33,6 @@ public class FlyingObjectDriver {
    */
   public static FlyingObject[] copyFlyingObjects(FlyingObject[] toCopy) {
 	FlyingObject[] copy = new FlyingObject[toCopy.length];
-	
 	for (int i = 0; i < copy.length; i++) {
 	 copy[i] = toCopy[i].copy(); 
 	}
@@ -57,8 +64,8 @@ public class FlyingObjectDriver {
 
 		for(int i = 0; i < copy.length; i++) {
 		  try {
-			Constructor<?> copyConstructor = (toCopy[i].getClass().getConstructor(toCopy[i].getClass()));
-			copy[i] = toCopy[i].getClass().cast(copyConstructor.newInstance(toCopy[i]));
+			Constructor<?> copyConstructor = (toCopy[i].getClass().getConstructor(toCopy[i].getClass()));//Grabs the appropriate copyConstructor
+			copy[i] = toCopy[i].getClass().cast(copyConstructor.newInstance(toCopy[i])); //Creates new copy and cast to dynamic type of original object.
 		  } 
 		  catch (NoSuchMethodException e) {System.out.println("Constructor not found: \n" + e.getMessage());}
 		  catch (SecurityException e) {System.out.println("Security Violation: \n" + e.getMessage() );}
@@ -66,6 +73,29 @@ public class FlyingObjectDriver {
 		}
 		return copy;
 	}
+  
+  /**
+   * Single FlyingObject Alternative copy method. Has correct static type, without casting.
+   * REQUIRES Java 10 or higher for use of 'var' type.
+   * @param <Any>
+   * @param toCopy
+   * @return
+   */
+  public static <Any> Object copySingleFlyingObject(FlyingObject toCopy) {
+	
+	try { //Because of 'var' type inference all actions on 'copy' must be preformed within the same scope/try block. 
+	  //I.e. 'copy' cannot be intialized to null outside try-block and then have its' static type reassigned.
+	  
+	  Constructor<?> copyConstructor = (toCopy.getClass().getConstructor(toCopy.getClass()));//Grabs the appropriate copyConstructor
+	  var copy = toCopy.getClass().cast(copyConstructor.newInstance(toCopy)); //Implicitly defines <var> static type to be the same as its' dynamic type.
+	  return copy;
+	} 
+	catch (NoSuchMethodException e) {System.out.println("Copy Constructor not found: \n" + e.getMessage());}
+	catch (SecurityException e) {System.out.println("Security Violation: \n" + e.getMessage() );}
+	catch (Exception e) {System.out.println("Error: \n" + e.getMessage());}
+	
+	return null;
+  } 
   
   /**
    * Prints to screen numbered list of array.
@@ -77,7 +107,10 @@ public class FlyingObjectDriver {
 	}
   }
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Throwable {
+	System.out.println("\n\t\t\tAlternate copyFlyingObjects Method "
+		+ "\n___________________________________________________________________________________");
+	
 	System.out.println("\n\n---------------------------------------------------------------------------------------");
 	System.out.println("First we created a test array and displayed it contents:");
 	System.out.println("---------------------------------------------------------------------------------------\n");
@@ -101,26 +134,71 @@ public class FlyingObjectDriver {
 	print(testArray);
 	
 	
-////	Multirotor -> Airplane cast
-//	Airplane test = new Airplane((Airplane)testArray[6]);
-//	System.out.println(test);
-	
 	
 	System.out.println("\n\n---------------------------------------------------------------------------------------");
 	System.out.println("Then we made make a copy of the array through a polymorphic method, displayed below:");
 	System.out.println("---------------------------------------------------------------------------------------\n");
 	
 	FlyingObject[] copy = copyFlyingObjects(testArray);
+//	copy[0].setBrand("Cant be modified without a cast here either.");
 	print(copy);
 
 	System.out.println("\n\n---------------------------------------------------------------------------------------");
-	System.out.println("Here made a copy of the array through directed constructor access:");
+	System.out.println("Here we made a copy of the array through directed constructor access:"
+		+ "\nThe brand and price of first object have been modified after array was copied.");
 	System.out.println("---------------------------------------------------------------------------------------\n");
 	
 	FlyingObject[] copy2 = copyFlyingObjects(testArray,"alternative method");
+	
+	//FlyingObject must be cast to access any non-shared method or attribute.
+	//This is also the case for the above polymorphic copy method as well.
+	((Airplane)copy2[0]).setBrand("NewBrand");
+
+	//However, setPrice() is implemented in the FlyingObject Class, thus can be modified.
+	copy2[0].setPrice(1200000.50);
 	print(copy2);
 	
-//	FlyingObject othertest = new FlyingObject(); // <THIS WILL NOT WORK, CANNOT INSTANTIATE AN ABSTRACT CLASS.>
+	
+	//Here I 
+	System.out.println("\n\n---------------------------------------------------------------------------------------");
+	System.out.println("Now the interesting test. "
+		+ "\nNote: Doesn't work yet. Haven't found a way to bybass casting/known-static-type compiler requirement");
+	System.out.println("---------------------------------------------------------------------------------------\n");
+	Airplane methodTest = new Airplane(3,"BrandtoChange",5000);
+	
+	var toModify = copySingleFlyingObject(methodTest);
+	System.out.println(toModify);
+//	toModify.setBrand("NewBrand");
+	
+	/*
+	 * Tried to run a scripting engine to permit runtime code.
+	 * Unsure of correct initiation procedure
+	 * Haven't gotten engine running yet.
+	 */
+	ScriptEngineManager mgr = new ScriptEngineManager();
+	ScriptEngine engine = mgr.getEngineByName("Javascript");
+	
+	ScriptContext ctxt = new SimpleScriptContext();
+	engine.setContext(ctxt);
+	Bindings binding = engine.getBindings(ScriptContext.GLOBAL_SCOPE);
+	engine.setBindings(binding, ScriptContext.GLOBAL_SCOPE);
+
+	
+	try {
+	  engine.eval("toModify.setBrand(\"NewBrand\");");
+	} catch (ScriptException e) {
+	  System.out.println("eval() didn't work: ");
+	  e.printStackTrace();
+	}
+
+	
+  
+
+
+
+	
   }
+
+ 
 
 }
